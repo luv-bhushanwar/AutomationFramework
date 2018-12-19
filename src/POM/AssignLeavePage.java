@@ -1,5 +1,7 @@
 package POM;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,10 +16,10 @@ public class AssignLeavePage {
 	@FindBy (id="assignleave_txtLeaveType")
 	private WebElement leavetype;
 	
-	@FindBy(xpath="(//img[@class='ui-datepicker-trigger'])[1]")
+	@FindBy(id="assignleave_txtFromDate")
 	private WebElement fromdate;
 	
-	@FindBy(xpath="(//img[@class='ui-datepicker-trigger'])[2]")
+	@FindBy(id="assignleave_txtToDate")
 	private WebElement todate;
 	
 	@FindBy(id="assignBtn")
@@ -52,9 +54,10 @@ public class AssignLeavePage {
 		todate.sendKeys(todt);
 	}
 	
-	public void assignbtn()
+	public void assignbtn(WebDriver dr)
 	{
 		assign.click();
+		dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 }
