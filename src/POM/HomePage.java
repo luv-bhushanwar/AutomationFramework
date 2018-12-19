@@ -15,6 +15,9 @@ public class HomePage {
 	@FindBy(xpath="//b[.='PIM']")
 	private WebElement pim;
 	
+	@FindBy(xpath="//b[.='Dashboard']")
+	private WebElement dashboard;
+	
 	@FindBy(id="menu_pim_addEmployee")
 	private WebElement addemployee;
 	
@@ -34,7 +37,7 @@ public class HomePage {
 		we.click();
 	}
 
-	public void pimmenu(WebDriver dr)
+	public void pimmenuddmenu(WebDriver dr)
 	{
 		dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Actions a = new Actions(dr);
@@ -45,6 +48,14 @@ public class HomePage {
 	{
 		WebDriverWait w = new WebDriverWait(dr,10);
 		WebElement we = addemployee;
+		w.until(ExpectedConditions.elementToBeClickable(we));
+		we.click();
+	}
+	
+	public void dashboardmenu(WebDriver dr)
+	{
+		WebDriverWait w = new WebDriverWait(dr,10);
+		WebElement we = dashboard;
 		w.until(ExpectedConditions.elementToBeClickable(we));
 		we.click();
 	}

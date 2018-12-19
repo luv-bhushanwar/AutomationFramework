@@ -6,20 +6,18 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelData {
 
-	public String getexceldata(String file, String sheet, int row, int cell)
-	{
+	public static String getexceldata(String file, String sheet, int row, int cell) {
 		String s = "";
 		try {
-			FileInputStream f = new FileInputStream (file);
+			FileInputStream f = new FileInputStream(file);
 			Workbook w = WorkbookFactory.create(f);
-			s= w.getSheet(sheet).getRow(row).getCell(cell).getStringCellValue();
-						
+			s = w.getSheet(sheet).getRow(row).getCell(cell).getStringCellValue();
+
 		} catch (Exception e) {
-		
-			e.printStackTrace();
+
 		}
-		
+
 		return s;
 	}
-	
+
 }
