@@ -7,32 +7,28 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AddEmployeePage {
 
-	@FindBy(id="firstName")
+	@FindBy(id = "firstName")
 	private WebElement firstname;
-	
-	@FindBy(id="lastName")
+
+	@FindBy(id = "lastName")
 	private WebElement lastname;
-	
-	@FindBy(id="btnSave")
+
+	@FindBy(id = "btnSave")
 	private WebElement save;
-	
-	public AddEmployeePage(WebDriver dr)
-	{
+
+	public AddEmployeePage(WebDriver dr) {
 		PageFactory.initElements(dr, this);
 	}
-	
-	public void fnametb(String fname)
-	{
+
+	public void fnametb(String fname) {
 		firstname.sendKeys(fname);
 	}
-	
-	public void lnametb(String lname)
-	{
+
+	public void lnametb(String lname) {
 		lastname.sendKeys(lname);
 	}
-	
-	public void savebtn()
-	{
+
+	public void savebtn() {
 		save.click();
 	}
 }
